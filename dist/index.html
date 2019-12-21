@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <style>
+        .container {
+            max-width: 600px;
+            padding: 40px 0;
+            margin: auto;
+        }
+    </style>
+<link href="/emails.miro.css" rel="stylesheet"><script type="text/javascript" src="/emails.miro.js"></script></head>
+<body>
+<div class="container">
+    <div id="root1"></div>
+</div>
+
+<div class="container">
+    <div id="root2"></div>
+</div>
+
+<script>
+  const container1 = document.querySelector('#root1');
+  const container2 = document.querySelector('#root2');
+  const options1 = {
+    title: 'Board Name 1'
+  };
+  const options2 = {
+    title: 'Board Name 2'
+  };
+  EmailsEditor({container: container1, options: options1});
+  EmailsEditor({container: container2, options: options2});
+</script>
+</body>
+</html>
