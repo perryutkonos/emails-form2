@@ -1,11 +1,11 @@
 # Emails Editor
 
-Emails Editor - javascript библиотека для редакторировани email адресов
+Emails Editor - javascript библиотека для редакторирования email адресов
 Умеет добавлять случайный email и считает колиество правильных адресов 
 
 ## Demo
 
-https://perryutkonos.github.io/emails-form/dist
+[https://perryutkonos.github.io/emails-form/dist](https://perryutkonos.github.io/emails-form/dist)
 
 ## Установка
 
