@@ -29,7 +29,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'emails.miro.js',
-    publicPath: '/',
+    publicPath: '',
     library: 'EmailsEditor',
     libraryTarget: 'var',
   },
