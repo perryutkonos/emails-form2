@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+    <title>Emails Editor Demo</title>
     <style>
         .container {
             max-width: 600px;
@@ -22,16 +22,17 @@
 </div>
 
 <script>
-  const container1 = document.querySelector('#root1');
-  const container2 = document.querySelector('#root2');
-  const options1 = {
-    title: 'Board Name 1'
+  const container = document.querySelector('#root1');
+  const options = {
+    title: 'Board Name 1',
+    defaultEmails: ['my@google.com','my@google.com','my@google.com','my@google.com']
   };
-  const options2 = {
-    title: 'Board Name 2'
-  };
-  EmailsEditor({container: container1, options: options1});
-  EmailsEditor({container: container2, options: options2});
+  const form = EmailsEditor({container, options});
+
+  form.onChange(function (emails) {
+    console.log(emails)
+  });
+
 </script>
 </body>
 </html>

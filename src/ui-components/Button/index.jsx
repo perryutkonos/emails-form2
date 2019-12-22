@@ -3,11 +3,12 @@ import React from 'react';
 import './styles.pcss';
 
 type Props = {
-  children: string
+  children: string,
+  onClick: Function
 };
 
-const Button = ({ children }: Props) => (
-  <button className="emails-button">
+const Button = ({ children, onClick }: Props) => (
+  <button className="emails-button" onClick={onClick} type="button">
     {children}
   </button>
 );

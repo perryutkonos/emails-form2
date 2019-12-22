@@ -8,15 +8,34 @@ import App from './components/App';
 const MOUNT_NODE = document.getElementById('root');
 
 const renderComponent = ({ container, options }) => {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  render(<App {...options} />, container);
+  const { component, getEmails, setCallBack } = App(options);
+  const Component = component;
+
+  render(<Component />, container);
+
+  const setEmails = (emails) => {
+    unmountComponentAtNode(container);
+    render(<Component emails={emails} />, container);
+  };
+
+  const onChange = (callback) => {
+    setCallBack(callback);
+  };
+
+  return {
+    getEmails,
+    setEmails,
+    onChange,
+  };
 };
 
 if (module.hot) {
   module.hot.accept(['./components/App/index.jsx'], () => {
     unmountComponentAtNode(MOUNT_NODE);
-    render();
+    renderComponent();
   });
 }
 
-export default renderComponent;
+const EmailsEditor = ({ container, options }) => renderComponent({ container, options });
+
+export default EmailsEditor;
