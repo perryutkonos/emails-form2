@@ -14,18 +14,14 @@
 </head>
 <body>
 <div class="container">
-    <div id="root1"></div>
-</div>
-
-<div class="container">
-    <div id="root2"></div>
+    <div id="emails-editor"></div>
 </div>
 
 <script>
-  const container = document.querySelector('#root1');
+  const container = document.querySelector('#emails-editor');
   const options = {
-    title: 'Board Name 1',
-    defaultEmails: ['my@google.com','my@google.com','my@google.com','my@google.com']
+    title: 'My Board',
+    defaultEmails: ['my@google.com','wrong.email']
   };
   const form = EmailsEditor({container, options});
 

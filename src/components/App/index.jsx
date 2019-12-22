@@ -12,7 +12,7 @@ type Props = {
   emails: Array<string>
 }
 
-const App = ({ title, defaultEmails = [''] }: AppProps) => {
+const App = ({ title = 'Default Title', defaultEmails = [] }: AppProps) => {
   let resultEmails = defaultEmails;
   let callBack: Function = () => {};
 

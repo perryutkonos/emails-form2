@@ -1,1 +1,137 @@
-# emails-form
+# Emails Editor
+
+Emails Editor - javascript библиотека для редакторировани email адресов
+Умеет добавлять случайный email и считает колиество правильных адресов 
+
+## Demo
+
+https://perryutkonos.github.io/emails-form/dist
+
+## Установка
+
+Подключите Javascript и CSS файлы в Head HTML страницы
+
+```html
+<head>
+    <link href="https://perryutkonos.github.io/emails-form/dist/emails.miro.css" rel="stylesheet">
+    <script type="text/javascript" src="https://perryutkonos.github.io/emails-form/dist/emails.miro.jss"></script>    
+</head>
+```
+## Использование
+
+Инициализруйте плагин выполнив `EmailsEditor({container, options}) `
+
+ - container - HTML элемент, в который будет встроен плагин
+ - options - Параметры, в которых будут предустановленные значения
+ 
+### Пример:
+
+```html
+<div id="emails-editor"></div>
+<script>
+ const container = document.querySelector('#emails-editor');
+ const options = {
+    title: 'My Board',
+    defaultEmails: ['my@google.com']
+  };
+  EmailsEditor({container, options});
+</script>
+```
+
+## API
+
+### Options
+
+#### `title`
+Тип - string
+Устанавливает подпись к форме
+
+Пример:
+```html
+<div id="emails-editor"></div>
+<script>
+ const container = document.querySelector('#emails-editor');
+  EmailsEditor({container, options: {
+    title: 'My Board'
+  }});
+</script>
+```
+
+#### `defaultEmails`
+Тип - Array\<string>
+
+Устанавливает список email адресов по умолчанию
+
+Пример:
+```html
+<div id="emails-editor"></div>
+<script>
+ const container = document.querySelector('#emails-editor');
+  EmailsEditor({container, options: {
+     defaultEmails: ['my@google.com']
+  }});
+</script>
+```
+
+### Методы
+
+#### `myEmailsEditor.getEmails()`
+
+Возвращает маccив email адресов
+
+Пример:
+```html
+<div id="emails-editor"></div>
+<script>
+    const container = document.querySelector('#emails-editor');
+    const editor = EmailsEditor({container, options: {
+        title: 'My Board',
+        defaultEmails: ['my@google.com']
+    }});
+
+    editor.getEmails() /* ['my@google.com']
+</script>
+```
+
+#### `myEmailsEditor.setEmails(Array<string>)`
+
+Устанавливает список адресов
+
+Пример:
+```html
+<div id="emails-editor"></div>
+<script>
+    const container = document.querySelector('#emails-editor');
+    const editor = EmailsEditor({container, options: {
+        title: 'My Board',
+        defaultEmails: ['my@google.com']
+    }});
+
+    editor.setEmails(['email1@mail.ru','email2@mail.ru']);
+</script>
+```
+
+#### `myEmailsEditor.onChage(function(emails){})`
+
+Подписывается на изменения email адресов в форме
+Пример:
+```html
+<div id="emails-editor"></div>
+<script>
+    const container = document.querySelector('#emails-editor');
+    const editor = EmailsEditor({container, options: {
+        title: 'My Board',
+        defaultEmails: ['email1@mail.ru','email2@mail.ru']
+    }});
+
+    editor.onChange(function(emails) {
+        console.log(emails) // ['email1@mail.ru','email2@mail.ru']
+    });
+</script>
+```
+
+
+
+
+
+
