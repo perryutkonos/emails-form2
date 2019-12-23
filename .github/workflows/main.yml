@@ -32,10 +32,12 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: MAKE Release
+      - name: Prepare release
         if: success()
         run: |
           rm ./dist/index.html
+      - name: MAKE Release
+        if: success()
         uses: crazy-max/ghaction-github-pages@v1
         with:
           target_branch: download
