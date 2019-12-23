@@ -1,21 +1,27 @@
 import React from 'react';
 import { unmountComponentAtNode, render } from 'react-dom';
+import App from './components/App';
+
+import { validateEnterData } from './utils/validators';
 
 import './styles/index.pcss';
 
-import App from './components/App';
 
 const MOUNT_NODE = document.getElementById('root');
 
-const renderComponent = ({ container, options }) => {
-  const { component, getEmails, setCallBack } = App(options);
-  const Component = component;
+const renderComponent = ({ container, options = {} }) => {
+  const { title = 'Your board', defaultEmails = [] } = options;
 
-  render(<Component />, container);
+  if (!validateEnterData({ container, title, defaultEmails })) {
+    return false;
+  }
+  const { EmailsEditorComponent, getEmails, setCallBack } = App({ title, defaultEmails });
+
+  render(<EmailsEditorComponent />, container);
 
   const setEmails = (emails) => {
     unmountComponentAtNode(container);
-    render(<Component emails={emails} />, container);
+    render(<EmailsEditorComponent emails={emails} />, container);
   };
 
   const onChange = (callback) => {

@@ -12,7 +12,7 @@ type Props = {
   emails: Array<string>
 }
 
-const App = ({ title = 'Default Title', defaultEmails = [] }: AppProps) => {
+const App = ({ title, defaultEmails }: AppProps) => {
   let resultEmails = defaultEmails;
   let callBack: Function = () => {};
 
@@ -22,7 +22,7 @@ const App = ({ title = 'Default Title', defaultEmails = [] }: AppProps) => {
   };
 
   return {
-    component: ({ emails = defaultEmails }: Props) => (
+    EmailsEditorComponent: ({ emails = defaultEmails }: Props) => (
       <Main updateEmails={updateEmails} title={title} emails={emails} />
     ),
     getEmails: () => resultEmails,
