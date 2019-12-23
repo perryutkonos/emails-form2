@@ -17,7 +17,7 @@ Emails Editor - javascript библиотека для редакториров�
 ```html
 <head>
     <link href="https://perryutkonos.github.io/emails-form/demo/emails.miro.css" rel="stylesheet">
-    <script type="text/javascript" src="https://perryutkonos.github.io/emails-form/demo/emails.miro.jss"></script>    
+    <script type="text/javascript" src="https://perryutkonos.github.io/emails-form/demo/emails.miro.js"></script>    
 </head>
 ```
 ## Использование
