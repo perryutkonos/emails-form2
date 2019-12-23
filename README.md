@@ -8,7 +8,7 @@ Emails Editor - javascript библиотека для редакториров�
 
 ## Demo
 
-[https://perryutkonos.github.io/emails-form/dist](https://perryutkonos.github.io/emails-form/dist)
+[https://perryutkonos.github.io/emails-form/demo](https://perryutkonos.github.io/emails-form/demo)
 
 ## Установка
 
@@ -16,8 +16,8 @@ Emails Editor - javascript библиотека для редакториров�
 
 ```html
 <head>
-    <link href="https://perryutkonos.github.io/emails-form/dist/emails.miro.css" rel="stylesheet">
-    <script type="text/javascript" src="https://perryutkonos.github.io/emails-form/dist/emails.miro.jss"></script>    
+    <link href="https://perryutkonos.github.io/emails-form/demo/emails.miro.css" rel="stylesheet">
+    <script type="text/javascript" src="https://perryutkonos.github.io/emails-form/demo/emails.miro.jss"></script>    
 </head>
 ```
 ## Использование
