@@ -2,9 +2,11 @@
 import React from 'react';
 import Main from './components/Main';
 
+import type { Emails } from './types/emails';
+
 type AppProps = {
   title: string,
-  defaultEmails: Array<string>
+  defaultEmails: Emails
 }
 
 type Props = {
@@ -15,7 +17,7 @@ const App = ({ title, defaultEmails }: AppProps) => {
   let resultEmails = defaultEmails;
   let callBack: Function = () => {};
 
-  const updateAppEmails = (emails) => {
+  const updateAppEmails = (emails: Emails) => {
     resultEmails = [...emails];
     callBack(resultEmails);
   };
