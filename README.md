@@ -124,6 +124,7 @@ HTML элемент, в который будет встроен плагин
 
 #### `myEmailsEditor.onChange(function(emails){})`
 
+
 Подписывается на изменения email адресов в форме
 Пример:
 ```html
