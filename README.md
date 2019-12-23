@@ -11,13 +11,16 @@ Emails Editor - javascript библиотека для редакториров�
 [https://perryutkonos.github.io/emails-form](https://perryutkonos.github.io/emails-form)
 
 ## Установка
+Скачайте файлы приложения
+
+[EmailsForm](https://github.com/perryutkonos/emails-form/archive/download.zip)
 
 Подключите Javascript и CSS файлы в Head HTML страницы
 
 ```html
 <head>
-    <link href="https://perryutkonos.github.io/emails-form/demo/emails.miro.css" rel="stylesheet">
-    <script type="text/javascript" src="https://perryutkonos.github.io/emails-form/demo/emails.miro.js"></script>    
+    <link href="emails.miro.css" rel="stylesheet">
+    <script type="text/javascript" src="emails.miro.js"></script>    
 </head>
 ```
 ## Использование

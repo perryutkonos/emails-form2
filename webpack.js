@@ -23,7 +23,11 @@ module.exports = {
   },
 
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [
+      new TerserJSPlugin({
+        extractComments: false,
+      }),
+      new OptimizeCSSAssetsPlugin({})],
   },
 
   output: {
