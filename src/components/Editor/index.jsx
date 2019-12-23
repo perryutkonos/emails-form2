@@ -1,5 +1,5 @@
 // @flow
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import uuid from 'uuid/v4';
 import type { Emails } from '../../types/emails';
 
@@ -23,7 +23,7 @@ const Editor = React.forwardRef<Props, any>(
   ({ addEmails, emails, removeEmail }: Props, ref: any) => {
     const inputElement = useRef(null);
 
-    const saveEmail = () => {
+    const saveEmail = useCallback(() => {
       if (!inputElement.current || !inputElement.current.value) {
         return false;
       }
@@ -31,18 +31,17 @@ const Editor = React.forwardRef<Props, any>(
       const newEmail = inputElement.current.value;
       inputElement.current.value = '';
       return addEmails([newEmail]);
-    };
+    }, [addEmails]);
 
-    const onKeyPress = (event) => {
+    const onKeyPress = useCallback((event) => {
       if (![ENTER_KEY_CODE, COMMA_KEY_CODE, SPACE_KEY_CODE].includes(event.key)) {
         return false;
       }
-
       event.preventDefault();
       return saveEmail();
-    };
+    }, [saveEmail]);
 
-    const onPaste = (event) => {
+    const onPaste = useCallback((event) => {
       const text = event.clipboardData.getData('Text');
       if (!text) {
         return false;
@@ -51,7 +50,9 @@ const Editor = React.forwardRef<Props, any>(
       event.preventDefault();
       const newEmails = text.replace(/\s/g, ',').split(',').filter((email) => email !== '');
       return addEmails(newEmails);
-    };
+    }, [addEmails]);
+
+    const inputPlaceHolder = emails.length ? 'add more people...' : 'add people...';
 
     return (
       <div className="emails-editor" ref={ref}>
@@ -59,7 +60,13 @@ const Editor = React.forwardRef<Props, any>(
           {emails.map((email, index) => (
             <Email email={email} key={uuid()} removeEmail={() => removeEmail(index)} />
           ))}
-          <Input ref={inputElement} onKeyPress={onKeyPress} onBlur={saveEmail} onPaste={onPaste} />
+          <Input
+            ref={inputElement}
+            onKeyPress={onKeyPress}
+            onBlur={saveEmail}
+            onPaste={onPaste}
+            inputPlaceHolder={inputPlaceHolder}
+          />
         </EmailsList>
       </div>
     );

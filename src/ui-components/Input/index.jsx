@@ -6,10 +6,13 @@ type Props = {
   onKeyPress: Function,
   onBlur: Function,
   onPaste: Function,
+  inputPlaceHolder: string
 }
 
 const Input = React.forwardRef<Props, any>(
-  ({ onKeyPress, onBlur, onPaste }: Props, ref: any) => (
+  ({
+    onKeyPress, onBlur, onPaste, inputPlaceHolder,
+  }: Props, ref: any) => (
     <div className="email-input">
       <input
         type="text"
@@ -17,7 +20,7 @@ const Input = React.forwardRef<Props, any>(
         onKeyPress={onKeyPress}
         onBlur={onBlur}
         onPaste={onPaste}
-        placeholder="add more people"
+        placeholder={inputPlaceHolder}
       />
     </div>
   ),
