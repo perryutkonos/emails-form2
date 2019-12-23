@@ -17,10 +17,6 @@
     <div id="emails-editor"></div>
 </div>
 
-<div class="container">
-    <div id="emails-editor2"></div>
-</div>
-
 <script>
   const container = document.querySelector('#emails-editor');
   const form = EmailsEditor({
@@ -33,18 +29,6 @@
   form.onChange(function (emails) {
     console.log(emails)
   });
-
-  const container2 = document.querySelector('#emails-editor2');
-  const form2 = EmailsEditor({
-    container: container2, options: {
-      title: 'My Board',
-      defaultEmails: ['form2@test.com']
-    }
-  });
-
-  form2.onChange(emails => {
-    console.log(emails)
-  })
 
 </script>
 </body>
