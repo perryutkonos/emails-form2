@@ -1,8 +1,8 @@
 import React from 'react';
 import { unmountComponentAtNode, render } from 'react-dom';
-import App from './components/App';
+import App from './App';
 
-import { validateEnterData } from './utils/validators';
+import { validateEnterData, validateEmailsArray } from './utils/validators';
 
 import './styles/index.pcss';
 
@@ -15,13 +15,21 @@ const renderComponent = ({ container, options = {} }) => {
   if (!validateEnterData({ container, title, defaultEmails })) {
     return false;
   }
-  const { EmailsEditorComponent, getEmails, setCallBack } = App({ title, defaultEmails });
+  const {
+    EmailsEditorComponent, getEmails, setCallBack, updateAppEmails,
+  } = App({ title, defaultEmails });
 
   render(<EmailsEditorComponent />, container);
 
   const setEmails = (emails) => {
+    if (!validateEmailsArray(emails)) {
+      return false;
+    }
+
     unmountComponentAtNode(container);
     render(<EmailsEditorComponent emails={emails} />, container);
+    updateAppEmails(emails);
+    return true;
   };
 
   const onChange = (callback) => {
@@ -36,7 +44,7 @@ const renderComponent = ({ container, options = {} }) => {
 };
 
 if (module.hot) {
-  module.hot.accept(['./components/App/index.jsx'], () => {
+  module.hot.accept(['./App.jsx'], () => {
     unmountComponentAtNode(MOUNT_NODE);
     renderComponent();
   });

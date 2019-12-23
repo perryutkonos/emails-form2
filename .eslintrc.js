@@ -27,6 +27,7 @@ module.exports = {
     "react/jsx-one-expression-per-line": 0,
     "react/state-in-constructor": 0,
     'react/require-default-props': 0,
-    'no-console': ["error", { allow: ["warn", "error"] }]
+    'no-console': ["error", { allow: ["warn", "error"] }],
+    'no-alert': 0
   },
 };

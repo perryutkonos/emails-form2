@@ -15,7 +15,7 @@ const IS_DEV = MODE === 'development';
 module.exports = {
 
   entry: {
-    app: './src/index.js',
+    app: './src/entry.js',
   },
 
   resolve: {

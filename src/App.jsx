@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
-import Main from '../Main';
-import './style.pcss';
+import Main from './components/Main';
 
 type AppProps = {
   title: string,
@@ -16,17 +15,18 @@ const App = ({ title, defaultEmails }: AppProps) => {
   let resultEmails = defaultEmails;
   let callBack: Function = () => {};
 
-  const updateEmails = (emails) => {
+  const updateAppEmails = (emails) => {
     resultEmails = [...emails];
     callBack(resultEmails);
   };
 
   return {
     EmailsEditorComponent: ({ emails = defaultEmails }: Props) => (
-      <Main updateEmails={updateEmails} title={title} emails={emails} />
+      <Main updateAppEmails={updateAppEmails} title={title} emails={emails} />
     ),
     getEmails: () => resultEmails,
     setCallBack: (newCallBack: Function) => { callBack = newCallBack; },
+    updateAppEmails,
   };
 };
 

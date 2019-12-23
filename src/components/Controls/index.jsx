@@ -22,7 +22,6 @@ const Controls = ({ addEmails, emails }: Props) => {
 
   const getAllValidateEmails = () => {
     const count = emails.filter(validateEmail).length;
-    // eslint-disable-next-line no-alert
     window.alert(`Valid Emails Count: ${count}`);
   };
   return (
