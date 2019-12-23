@@ -23,6 +23,7 @@ jobs:
         run: |
           npm i
           npm run build
+          sh ./postdeploy.sh
       -
         name: Deploy
         if: success()
