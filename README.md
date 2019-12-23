@@ -8,7 +8,7 @@ Emails Editor - javascript библиотека для редакториров�
 
 ## Demo
 
-[https://perryutkonos.github.io/emails-form/demo](https://perryutkonos.github.io/emails-form/demo)
+[https://perryutkonos.github.io/emails-form](https://perryutkonos.github.io/emails-form)
 
 ## Установка
 

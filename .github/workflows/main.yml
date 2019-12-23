@@ -24,7 +24,7 @@ jobs:
           npm i
           npm run build
       -
-        name: Deploy
+        name: Deploy Demo
         if: success()
         uses: crazy-max/ghaction-github-pages@v1
         with:
@@ -32,3 +32,14 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: MAKE Release
+        if: success()
+        run: |
+          rm ./dist/index.html
+        uses: crazy-max/ghaction-github-pages@v1
+        with:
+          target_branch: download
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
