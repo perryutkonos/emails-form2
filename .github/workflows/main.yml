@@ -1,18 +1,25 @@
-name: website
+name: Build Demo
 
 on: push
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
     steps:
       -
         name: Checkout
         uses: actions/checkout@v1
       -
         name: Build
-        run: 
-          npm build
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+        run: |
+          npm run build
       -
         name: Deploy
         if: success()
