@@ -8,12 +8,12 @@ Emails Editor - javascript библиотека для редакториров�
 
 ## Demo
 
-[https://perryutkonos.github.io/emails-form](https://perryutkonos.github.io/emails-form)
+[https://perryutkonos.github.io/emails-form2](https://perryutkonos.github.io/emails-form2)
 
 ## Установка
 Скачайте файлы приложения
 
-[EmailsForm](https://github.com/perryutkonos/emails-form/archive/download.zip)
+[EmailsForm](https://github.com/perryutkonos/emails-form2/archive/download.zip)
 
 Подключите Javascript и CSS файлы в Head HTML страницы
 

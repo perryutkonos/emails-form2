@@ -22,13 +22,18 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
 
-  optimization: {
+  optimization: IS_PROD ? {
     minimizer: [
       new TerserJSPlugin({
+        terserOptions: {
+          output: {
+            comments: false,
+          },
+        },
         extractComments: false,
       }),
       new OptimizeCSSAssetsPlugin({})],
-  },
+  } : {},
 
   output: {
     path: path.join(__dirname, '/dist'),
@@ -53,7 +58,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.html/,
+        loader: 'html-loader',
+      }, {
+        test: /\.js?$/,
         loader: 'babel-loader',
       }, {
         test: /\.pcss/,

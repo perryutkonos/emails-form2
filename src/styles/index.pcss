@@ -1,1 +1,128 @@
 @import "variables.pcss";
+
+.emails-container {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  background: var(--background-color);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+
+  &__top {
+    background: var(--gray-color);
+    padding: 32px 50px 24px;
+  }
+}
+
+.emails-header {
+
+  &__text {
+    font-size: 20px;
+    line-height: 27px;
+    color: var(--text-color);
+  }
+
+  &__text-title {
+    font-weight: bold;
+  }
+}
+
+.emails-controls {
+  padding: 24px 50px 32px;
+  display: flex;
+}
+
+.emails-editor {
+  height: 96px;
+  padding: 8px;
+  border: 1px solid var(--dark-gray-color);
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 24px;
+  background: white;
+  overflow-y: scroll;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.emails-button {
+  background: var(--blue-color);
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 24px;
+  color: white;
+  padding: 8px 16px;
+  margin: 8px;
+  outline: none;
+  transition: background-color var(--transition-time);
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background: var(--blue-color-hover);
+  }
+}
+
+.emails-buttons {
+  display: flex;
+  margin: -8px;
+}
+
+.emails-close {
+  display: inline-block;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: none;
+  margin: 0 0 0 4px;
+  background: none;
+}
+
+.emails-item {
+  background: var(--blue-light);
+  border-radius: 100px;
+  font-size: 14px;
+  line-height: 24px;
+  height: 24px;
+  margin: 4px;
+  padding: 0 10px;
+  position: relative;
+  white-space: nowrap;
+
+  &--error:before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background: red;
+    width: 100%;
+    bottom: -1px;
+    left: 0;
+  }
+}
+
+.emails-list {
+  margin: -4px;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+.email-input {
+  display: inline-block;
+  margin: 4px;
+  flex: 1 1 auto;
+  border: none;
+  font-size: 14px;
+  line-height: 24px;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border: none;
+  }
+}
+

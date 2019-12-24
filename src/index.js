@@ -1,13 +1,8 @@
-import React from 'react';
-import { unmountComponentAtNode, render } from 'react-dom';
 import App from './App';
-
 import { validateEnterData, validateEmailsArray } from './utils/validators';
+import createHash from './utils/createHash';
 
 import './styles/index.pcss';
-
-
-const MOUNT_NODE = document.getElementById('root');
 
 const renderComponent = ({ container, options = {} }) => {
   const { title = 'Your board', defaultEmails = [] } = options;
@@ -15,19 +10,23 @@ const renderComponent = ({ container, options = {} }) => {
   if (!validateEnterData({ container, title, defaultEmails })) {
     return false;
   }
-  const {
-    EmailsEditorComponent, getEmails, setCallBack, updateAppEmails,
-  } = App({ title, defaultEmails });
 
-  render(<EmailsEditorComponent />, container);
+  const postfix = createHash(container.outerHTML);
+
+  const {
+    form, getEmails, setCallBack, updateAppEmails,
+  } = App({ title, emails: defaultEmails, postfix });
+
+  while (container.childElementCount) {
+    container.removeChild(container.firstChild);
+  }
+
+  container.append(form);
 
   const setEmails = (emails) => {
     if (!validateEmailsArray(emails)) {
       return false;
     }
-
-    unmountComponentAtNode(container);
-    render(<EmailsEditorComponent emails={emails} />, container);
     updateAppEmails(emails);
     return true;
   };
@@ -44,8 +43,7 @@ const renderComponent = ({ container, options = {} }) => {
 };
 
 if (module.hot) {
-  module.hot.accept(['./App.jsx'], () => {
-    unmountComponentAtNode(MOUNT_NODE);
+  module.hot.accept(['./App/index.js'], () => {
     renderComponent();
   });
 }
