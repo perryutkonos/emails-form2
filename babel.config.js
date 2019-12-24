@@ -6,7 +6,6 @@ module.exports = (api) => {
     ],
     presets: [
       '@babel/preset-env',
-      '@babel/preset-flow',
     ],
   };
 };
