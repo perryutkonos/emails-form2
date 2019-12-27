@@ -41,7 +41,6 @@ const App = ({ title, emails, postfix }) => {
     window.alert(`Valid Emails Count: ${count}`);
   };
 
-
   form = renderForm({ title, postfix });
   renderEmails(currentEmails);
 

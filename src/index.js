@@ -4,7 +4,7 @@ import createHash from './utils/createHash';
 
 import './styles/index.pcss';
 
-const renderComponent = ({ container, options = {} }) => {
+const EmailsEditor = ({ container, options = {} }) => {
   const { title = 'Your board', defaultEmails = [] } = options;
 
   if (!validateEnterData({ container, title, defaultEmails })) {
@@ -44,10 +44,8 @@ const renderComponent = ({ container, options = {} }) => {
 
 if (module.hot) {
   module.hot.accept(['./App/index.js'], () => {
-    renderComponent();
+    EmailsEditor();
   });
 }
-
-const EmailsEditor = ({ container, options }) => renderComponent({ container, options });
 
 export default EmailsEditor;
