@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Emails Editor Demo</title>
+    <style>
+        .container {
+            max-width: 600px;
+            padding: 40px 0;
+            margin: auto;
+        }
+    </style>
+<link href="emails.miro.css" rel="stylesheet"><script type="text/javascript" src="emails.miro.js"></script></head>
+<body>
+<div class="container">
+    <div id="emails-editor"></div>
+</div>
+
+<script>
+  const container = document.querySelector('#emails-editor');
+  const form = EmailsEditor({
+    container, options: {
+      title: 'Demo 2 Board',
+      defaultEmails: ['test@test.com']
+    }
+  });
+
+  form.onChange(function (emails) {
+    console.log(emails)
+  });
+
+</script>
+</body>
+</html>
